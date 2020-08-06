@@ -1,6 +1,6 @@
 public class test {
     public static void main(String[] args){
-        int i = 1<<2;
-        System.out.println(i);
+        int a[] = new int[3];
+        int len = a.length;
     }
 }
