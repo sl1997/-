@@ -63,6 +63,7 @@ public class Solution {
         return true;
     }
 
+    //==============================================程序入口============================================================
     public static void main(String[] args){
         Solution s = new Solution();
         String str1_1 = "abcdefg";

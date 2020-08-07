@@ -1,6 +1,7 @@
+import java.util.ArrayList;
+
 public class test {
     public static void main(String[] args){
-        int a[] = new int[3];
-        int len = a.length;
+        System.out.println(""+1);
     }
 }
