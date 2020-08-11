@@ -31,6 +31,28 @@ public class Solution {
         printMatrix(matrix);
     }
 
+    // 方法二【位运算】：通过位向量存储为0的行和列以节省存储空间
+    public void toZero1(int[][] matrix){
+        int row = 0;
+        int col = 0;
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[i].length;j++){
+                if(matrix[i][j]==0){
+                    row = row|(1<<i);  // 将矩阵中0元素的行号记录在位向量row中，即元素为0时令对应位为1
+                    col = col|(1<<j);
+                }
+            }
+        }
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[i].length;j++){
+                if((row&(1<<i))>0||(col&(1<<j))>0){  // 将记录位向量与当前行/列号的位向量求并，当且仅当该行被标记过且当前遍历到结果才大于0
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        printMatrix(matrix);
+    }
+
     public void printMatrix(int[][] matrix){
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[i].length;j++){
@@ -79,6 +101,6 @@ public class Solution {
                 {7,8,9}
         };
         Solution s = new Solution();
-        s.toZero(a);
+        s.toZero1(a);
     }
 }
